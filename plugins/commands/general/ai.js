@@ -1,9 +1,9 @@
 import axios from 'axios';
 
 const config = {
-    name: "au",
+    name: "ai",
     aliases: ["ai"],
-    description: "Ask a question to the GPT.",
+    description: "Ask a question to the Ai.",
     usage: "[query]",
     category: "𝙴𝚍𝚞𝚌𝚊𝚝𝚒𝚘𝚗",
     cooldown: 3,
@@ -36,9 +36,9 @@ async function onCall({ message, args }) {
 
         // Validate the response
         if (data?.gpt4) {
-            await message.send(`ᝰ.ᐟ | 𝙲𝚑𝚊𝚝𝙶𝙿𝚃\n・──────────────・\n${data.gpt4}\n・───── >ᴗ< ──────・`);
+            await message.send(` Mocha ai\n・──────────────・\n${data.gpt4}\n・───── >ᴗ< ──────・`);
         } else {
-            await message.send("ᝰ.ᐟ | 𝙲𝚊𝚝𝙶𝙿𝚃\n・──────────────・\nError: Unexpected response format from API.\n・───── >ᴗ< ──────・");
+            await message.send(" Mocha ai\n・──────────────・\nError: Unexpected response format from API.\n・───── >ᴗ< ──────・");
         }
     } catch (error) {
         // Log the error for debugging
