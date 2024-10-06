@@ -14,7 +14,7 @@ const config = {
 async function onCall({ message, args }) {
     // Handle case where no query is provided
     if (!args.length) {
-        return message.reply("ᝰ.ᐟ | 𝙲𝚑𝚊𝚝𝙶𝙿𝚃\n・──────────────・\nHello! How can I assist you today?\n・───── >ᴗ< ──────・");
+        return message.reply("Mocha ai \n・──────────────・\nHello! How can I assist you today?\n・───── >ᴗ< ──────・");
     }
 
     const query = args.join(" ");
