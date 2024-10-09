@@ -25,7 +25,7 @@ async function onCall({ message, args }) {
 
     try {
         // Send request to the API
-        const { data } = await axios.get('https://deku-rest-apis.ooguy.com/gpt4?prompt=${encodeUriComponent(query)}&uid=${userId}',
+        const { data } = await axios.get('https://deku-rest-apis.ooguy.com/gpt4?',
 
  {
             params: {
