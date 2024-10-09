@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 const config = {
     name: "ai",
     aliases: ["ai"],
