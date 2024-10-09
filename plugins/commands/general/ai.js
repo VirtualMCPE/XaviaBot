@@ -1,5 +1,3 @@
-import axios from 'axios';
-
 const config = {
     name: "ai",
     aliases: ["ai"],
@@ -12,42 +10,30 @@ const config = {
 };
 
 async function onCall({ message, args }) {
-    // Handle case where no query is provided
-    if (!args.length) {
-        return message.reply("Mocha ai \n・──────────────・\nHello! How can I assist you today?\n・───── >ᴗ< ──────・");
-    }
-
     const query = args.join(" ");
-    const uid = message.senderID; // Using senderID as uid
+    const uid = message.senderID; 
 
-    // Indicate processing
     const typingIndicator = global.api.sendTypingIndicator(message.threadID);
 
     try {
-        // Send request to the API
-        const { data } = await axios.get('https://deku-rest-apis.ooguy.com/gpt4?',
-
- {
+        const { data } = await axios.get('https://deku-rest-apis.ooguy.com/gpt4', {
             params: {
                 prompt: query,
                 uid: uid
             }
         });
 
-        typingIndicator(); // Stop the typing indicator
+        typingIndicator(); 
 
-        // Validate the response
         if (data?.gpt4) {
             await message.send(` Mocha ai\n・──────────────・\n${data.gpt4}\n・───── >ᴗ< ──────・`);
         } else {
             await message.send(" Mocha ai\n・──────────────・\nError: Unexpected response format from API.\n・───── >ᴗ< ──────・");
         }
     } catch (error) {
-        // Log the error for debugging
         console.error("API call failed: ", error);
         await message.react(`✖️`);
-        await message.send("An error occurred while fetching the data."); // Inform the user about the error
-    }
+        await message.send(error.toString());    }
 }
 
 export default {
