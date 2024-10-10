@@ -2,8 +2,8 @@ import x from "g4f";
 const { G4F } = x;
 
 const config = {
-    name: "ai",
-    aliases: ["ai"],
+    name: "gemini",
+    aliases: ["gemini"],
     description: "Ask a question to the Ai.",
     usage: "[query]",
     category: "𝙴𝚍𝚞𝚌𝚊𝚝𝚒𝚘𝚗",
