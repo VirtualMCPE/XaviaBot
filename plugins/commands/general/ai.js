@@ -1,4 +1,5 @@
-import axios from "axios";
+import x from "g4f";
+const { G4F } = x;
 
 const config = {
     name: "ai",
@@ -8,27 +9,25 @@ const config = {
     category: "𝙴𝚍𝚞𝚌𝚊𝚝𝚒𝚘𝚗",
     cooldown: 3,
     permissions: [0, 1, 2],
-    credits: "RN",
+    credits: "RN, Lian",
 };
 
 async function onCall({ message, args }) {
     const query = args.join(" ");
+    const g4f = new G4F();
     const uid = message.senderID; 
 
     const typingIndicator = global.api.sendTypingIndicator(message.threadID);
 
     try {
-        const { data } = await axios.get('https://deku-rest-apis.ooguy.com/gpt4', {
-            params: {
-                prompt: query,
-                uid: uid
-            }
-        });
+        const messageAns = await g4f.chatCompletion([
+     { role: user, content: args.join(" "), }
+     ]);
 
         typingIndicator(); 
 
-        if (data?.gpt4) {
-            await message.send(` Mocha ai\n・──────────────・\n${data.gpt4}\n・───── >ᴗ< ──────・`);
+        if (messageAns) {
+            await message.send(` Mocha ai\n・──────────────・\n${messageAns}\n・───── >ᴗ< ──────・`);
         } else {
             await message.send(" Mocha ai\n・──────────────・\nError: Unexpected response format from API.\n・───── >ᴗ< ──────・");
         }
