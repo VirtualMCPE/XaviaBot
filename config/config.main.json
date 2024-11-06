@@ -21,8 +21,8 @@
     "ABSOLUTES": [
         
     ],
-    "NAME": "Mocha",
-    "PREFIX": "-",
+    "NAME": "Jarvis",
+    "PREFIX": "Jarvis",
     "timezone": "Asia/Ho_Chi_Minh",
     "REFRESH": "43200000",
     "MAX_BALANCE_LIMIT": "-1"
